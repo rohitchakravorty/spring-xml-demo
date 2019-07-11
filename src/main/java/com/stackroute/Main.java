@@ -18,18 +18,13 @@ import org.springframework.core.io.FileSystemResource;
 public class Main {
 
     public static void main(String[] args) {
-        ApplicationContext context=new ClassPathXmlApplicationContext("beans.xml");
-        Movie movie=context.getBean("movie",Movie.class);
-        System.out.println(movie);
+        ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+        Movie movie = context.getBean("movie", Movie.class);
+        Movie movie1 = context.getBean("movieB", Movie.class);
+        System.out.println(movie==movie1);
 
-        BeanFactory context2=new XmlBeanFactory(new ClassPathResource("beans.xml"));
-        Movie movie1=context2.getBean("movie",Movie.class);
         System.out.println(movie1);
 
-        BeanDefinitionRegistry beanDefinitionRegistry=new DefaultListableBeanFactory();
-        XmlBeanDefinitionReader xmlBeanDefinitionReader = new XmlBeanDefinitionReader(beanDefinitionRegistry);
-        xmlBeanDefinitionReader.loadBeanDefinitions(new ClassPathResource("beans.xml"));
-        Movie movie3= ((DefaultListableBeanFactory)beanDefinitionRegistry).getBean(Movie.class);
-        System.out.println(movie3);
+//
     }
 }
