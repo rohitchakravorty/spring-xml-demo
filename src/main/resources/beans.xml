@@ -4,15 +4,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!-- bean definitions here -->
-<!--    <bean id="actorObj" class="com.stackroute.domain.Actor">-->
-<!--        <property name="name" value="Rohit Chakravorty"/>-->
-<!--        <property name="gender" value="M"/>-->
-<!--        <property name="age" value="21"/>-->
-<!--    </bean>-->
-<!--    <bean id="movie" class="com.stackroute.domain.Movie">-->
-<!--       <property name="actor" ref="actorObj"/>-->
-<!--    </bean>-->
+
+
+
     <bean id="actor" class="com.stackroute.domain.Actor">
         <constructor-arg name="name" value="Rohit Chakravorty"/>
         <constructor-arg name="gender" value="M"/>
@@ -28,14 +22,11 @@
         <constructor-arg name="gender" value="M"/>
         <constructor-arg name="age" value="21"/>
     </bean>
-    <bean id="movie" class="com.stackroute.domain.Movie" scope="prototype">
-        <constructor-arg name="actor" ref="actor"/>
-        <constructor-arg name="actor1" ref="actor1"/>
-        <constructor-arg name="actor2" ref="actor2"/>
+    <bean id="movie" scope="prototype" class="com.stackroute.domain.Movie" autowire="byName">
+
     </bean>
-    <bean name="movieA,movieB" class="com.stackroute.domain.Movie" scope="prototype">
-        <constructor-arg name="actor" ref="actor"/>
-        <constructor-arg name="actor1" ref="actor1"/>
-        <constructor-arg name="actor2" ref="actor2"/>
+    <bean id="movie1" scope="prototype" class="com.stackroute.domain.Movie" autowire="constructor">
+
     </bean>
+
 </beans>
