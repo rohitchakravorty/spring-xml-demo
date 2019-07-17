@@ -6,6 +6,7 @@
 
 
 
+        <!--Creating beans for actor-->
 
     <bean id="actor" class="com.stackroute.domain.Actor">
         <constructor-arg name="name" value="Rohit Chakravorty"/>
@@ -22,6 +23,7 @@
         <constructor-arg name="gender" value="M"/>
         <constructor-arg name="age" value="21"/>
     </bean>
+             <!--Creating bean for movie autowire--> 
     <bean id="movie" scope="prototype" class="com.stackroute.domain.Movie" autowire="byName">
 
     </bean>
