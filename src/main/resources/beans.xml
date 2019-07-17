@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-
+    <!--Creating beans for actor-->
     <bean id="actor" class="com.stackroute.domain.Actor">
         <constructor-arg name="name" value="Rohit Chakravorty"/>
         <constructor-arg name="gender" value="M"/>
@@ -20,11 +20,13 @@
         <constructor-arg name="gender" value="M"/>
         <constructor-arg name="age" value="21"/>
     </bean>
+      <!--Creating bean for movie--> 
     <bean id="movie" class="com.stackroute.domain.Movie" scope="prototype">
         <constructor-arg name="actor" ref="actor"/>
         <constructor-arg name="actor1" ref="actor1"/>
         <constructor-arg name="actor2" ref="actor2"/>
     </bean>
+     <!--We can refer to the bean using either of the name-->
     <bean name="movieA,movieB" class="com.stackroute.domain.Movie" scope="prototype">
         <constructor-arg name="actor" ref="actor"/>
         <constructor-arg name="actor1" ref="actor1"/>
