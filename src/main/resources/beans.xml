@@ -5,6 +5,7 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
+         <!--Creating beans for actor-->
 
 
     <bean id="actor" class="com.stackroute.domain.Actor">
@@ -22,12 +23,15 @@
         <constructor-arg name="gender" value="M"/>
         <constructor-arg name="age" value="21"/>
     </bean>
+     <!--Creating bean for movie autowire--> 
+
     <bean id="movie" scope="prototype" class="com.stackroute.domain.Movie" autowire="byName">
 
     </bean>
     <bean id="movie1" scope="prototype" class="com.stackroute.domain.Movie" autowire="constructor">
 
     </bean>
+       <!--Bean LifeCycle-->
     <bean id="demo" class="com.stackroute.demo.BeanLifecycleDemoBean" destroy-method="customDestroy" init-method="customInit" >
         
     </bean>
